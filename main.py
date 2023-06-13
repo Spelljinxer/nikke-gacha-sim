@@ -71,8 +71,17 @@ def gacha_pull(user_input):
     elif user_input == 2:
         silver_tickets += 1
 
-    #implement the 10 pull inventory check duplicate here
-    inventory[character_group].append(character)
+    if any(character in entry for entry in inventory[character_group]):
+        for i, existing_character in enumerate(inventory[character_group]):
+            if character in existing_character:
+                if '(' in existing_character:
+                    suffix = int(existing_character.split('(')[1][:-1]) + 1
+                    inventory[character_group][i] = f"{character}({suffix})"
+                else:
+                    inventory[character_group][i] = f"{character}(1)"
+                break
+    else:
+        inventory[character_group].append(character)
     
 def gacha_pull_10(user_input):
     global gems, gold_tickets, silver_tickets, inventory
