@@ -70,6 +70,8 @@ def gacha_pull(user_input):
         gold_tickets += 1
     elif user_input == 2:
         silver_tickets += 1
+
+    #implement the 10 pull inventory check duplicate here
     inventory[character_group].append(character)
     
 def gacha_pull_10(user_input):
@@ -87,13 +89,13 @@ def gacha_pull_10(user_input):
     for i in range(10):
         result = random.random()
         if result < SSR_PROBABILITY:
-            character_group = ("SSR_characters")
+            character_group = "SSR_characters"
             if random.random() < PILGRIM_PROBABILITY:
-                character_group = ("Pilgrims")
+                character_group = "Pilgrims"
         elif result < SSR_PROBABILITY + SR_PROBABILITY:
-            character_group = ("SR_characters")
+            character_group = "SR_characters"
         else:
-            character_group = ("R_characters")
+            character_group = "R_characters"
         character = random.choice(gacha_characters[character_group])
         characters.append([character_group, character])
         print(f"You pulled a {character_group[:-11]} character: {character}")
@@ -102,8 +104,22 @@ def gacha_pull_10(user_input):
         gold_tickets += 10
     elif user_input == 4:
         silver_tickets += 10
-    for i in range(0, len(characters)):
-        inventory[characters[i][0]].append(characters[i][1])
+
+    for character_info in characters:
+        character_group = character_info[0]
+        character = character_info[1]
+
+        if any(character in entry for entry in inventory[character_group]):
+            for i, existing_character in enumerate(inventory[character_group]):
+                if character in existing_character:
+                    if '(' in existing_character:
+                        suffix = int(existing_character.split('(')[1][:-1]) + 1
+                        inventory[character_group][i] = f"{character}({suffix})"
+                    else:
+                        inventory[character_group][i] = f"{character}(1)"
+                    break
+        else:
+            inventory[character_group].append(character)
 
 def display_inventory():
     print("\n--- Inventory ---")
