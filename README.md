@@ -31,6 +31,7 @@ python main.py
 - 10-pull: Perform a 10-pull gacha draw and add the characters to your inventory.
 - Inventory management: View and manage your inventory of characters.
 - Gold and silver tickets: Track the number of gold and silver tickets you have for special pulls.
+- Ticket Shop: Spend your gold and silver tickets for duplicate characters **(WIP)**
 - more to come...
 --- 
 <div align="center">
