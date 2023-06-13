@@ -43,17 +43,17 @@ def gacha_pull(user_input):
 
     # Perform the gacha pull
     result = random.random()
-    featured = False
-    if result < SSR_PROBABILITY:
-        character_group = "SSR_characters"
+    if result <= SSR_PROBABILITY:
         chance = random.random()
-        if chance < FEATURED_CHARACTER_PROBABILITY and chance > PILGRIM_PROBABILITY:
+        if chance <= FEATURED_CHARACTER_PROBABILITY and chance > PILGRIM_PROBABILITY:
             featured = True
-        elif random.random() < PILGRIM_PROBABILITY:
+        elif chance <= PILGRIM_PROBABILITY:
             character_group = "Pilgrims"
-    elif result < SSR_PROBABILITY + SR_PROBABILITY:
+        else:
+            character_group = "SSR_characters"
+    elif result <= SSR_PROBABILITY + SR_PROBABILITY:
         character_group = "SR_characters"
-    elif result < SCAM_PROBABILITY:
+    elif result <= SCAM_PROBABILITY:
         character_group = "Scams"
     else:
         character_group = "R_characters"
@@ -63,7 +63,7 @@ def gacha_pull(user_input):
         character = featured_character
     
     print("Pulling...")
-    time.sleep(2)
+    time.sleep(1.5)
     print(f"You pulled a {character_group[:-11]} character: {character}")
 
     if user_input == 1:
@@ -93,15 +93,18 @@ def gacha_pull_10(user_input):
     gems -= GEMS_PER_PULL * 10
 
     print("Pulling...")
-    time.sleep(2)
+    time.sleep(1.5)
     characters = []
     for i in range(10):
         result = random.random()
-        if result < SSR_PROBABILITY:
-            character_group = "SSR_characters"
-            if random.random() < PILGRIM_PROBABILITY:
+        
+        if result <= SSR_PROBABILITY:
+            chance = random.random()
+            if chance <= PILGRIM_PROBABILITY:
                 character_group = "Pilgrims"
-        elif result < SSR_PROBABILITY + SR_PROBABILITY:
+            else:
+                character_group = "SSR_characters"
+        elif result <= SSR_PROBABILITY + SR_PROBABILITY:
             character_group = "SR_characters"
         else:
             character_group = "R_characters"
