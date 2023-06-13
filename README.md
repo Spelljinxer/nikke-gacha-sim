@@ -23,7 +23,7 @@ cd nikke-gacha-sim
 ```
 
 3. Run the simulator
-```bash
+```xml
 python main.py
 ```
 4. Follow the instructions in the CLI to perform gacha pulls and manage your inventory.
@@ -34,3 +34,8 @@ python main.py
 - Inventory management: View and manage your inventory of characters.
 - Gold and silver tickets: Track the number of gold and silver tickets you have for special pulls.
 - more to come...
+--- 
+<div align="center">
+
+*Note: NIKKE and the associated characters are the property of SHIFT UP Corporation and Level Infinite. This project is not affiliated with or endorsed by SHIFT UP Corporation or Level Infinite.*
+</div>
