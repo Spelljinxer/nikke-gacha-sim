@@ -1,5 +1,3 @@
-markdown
-Copy code
 # Nikke Gacha Simulator
 
 A CLI-based gacha simulator based on [NIKKE](https://nikke-en.com/). This simulator allows you to simulate gacha pulls and manage your inventory of characters. It provides functionality for both single pulls and 10-pull gacha draws.
