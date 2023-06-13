@@ -1,6 +1,6 @@
 """
-tried to make it as readable as possible pepelaugh
-try to find everything I did pepelaff
+@Author: Reiden Rufin
+@Co-Author: Nathan Eden
 """
 
 import json
