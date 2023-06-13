@@ -81,8 +81,6 @@ def gacha_pull_10(user_input):
 
     gems -= GEMS_PER_PULL * 10
 
-    # Perform the gacha pull
-    #I didnt implement featured character thing here only on single pull (no time)
     print("Pulling...")
     time.sleep(2)
     characters = []
@@ -231,6 +229,7 @@ def run_gacha_simulator():
             break
         elif choice == "secret_code":
             print("Wow! You found the secret code! You get 3000 gems!")
+            secret_code()
         else:
             print("Invalid choice. Please try again.")
 
