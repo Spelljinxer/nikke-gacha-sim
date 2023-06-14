@@ -61,7 +61,7 @@ def gacha_pull(user_input):
         character = random.choice(gacha_characters[character_group])
     else:
         character = featured_character
-    
+
     print("Pulling...")
     time.sleep(1.5)
     print(f"You pulled a {character_group[:-11]} character: {character}")
@@ -82,7 +82,7 @@ def gacha_pull(user_input):
                 break
     else:
         inventory[character_group].append(character)
-    
+
 def gacha_pull_10(user_input):
     global gems, gold_tickets, silver_tickets, inventory
 
@@ -97,7 +97,7 @@ def gacha_pull_10(user_input):
     characters = []
     for i in range(10):
         result = random.random()
-        
+
         if result <= SSR_PROBABILITY:
             chance = random.random()
             if chance <= PILGRIM_PROBABILITY:
@@ -193,6 +193,7 @@ def enter_ticket_shop():
             if gold_tickets >= 200:
                 print("Congratulations! You obtained the limited character!")
                 gold_tickets -= 200
+                #fix this
                 inventory["SSR_characters"].append(featured_character)
                 print(f"You obtained the limited character: {featured_character}")
                 break
@@ -202,6 +203,7 @@ def enter_ticket_shop():
             if silver_tickets >= 200:
                 print("Congratulations! You bought a spare body part!")
                 silver_tickets -= 200
+                #fix this
                 spare_body_part = random.choice(gacha_characters["SSR_characters"])
                 inventory["SSR_characters"].append(spare_body_part)
                 print(f"You obtained a spare body part: {spare_body_part}")
