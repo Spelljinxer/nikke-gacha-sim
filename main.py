@@ -229,7 +229,6 @@ def enter_ticket_shop():
                     print(f"You purchased {character} for 200 gold tickets.")
                 else:
                     print("Insufficient gold tickets. Please try again.")            
-                # enter_ticket_shop()
             elif gold_choice == "2":
                 character = gold_ticket_items[1]
                 duplicate_handler(character, "SSR_characters")
@@ -238,6 +237,20 @@ def enter_ticket_shop():
                 print("You returned to the ticket shop.")
         elif choice == "2":
             print(silver_ticket_shop)
+            silver_choice = input("You wish to buy some spare body parts?: ")
+            if silver_choice == "1":
+                pass
+            elif silver_choice == "2":
+                pass
+            elif silver_choice == "3":
+                pass
+            elif silver_choice == "4":
+                pass
+            elif silver_choice == "5":
+                pass
+            elif silver_choice == "6":
+                enter_ticket_shop()
+                print("You returned to the ticket shop.")
             
         elif choice == "3":
             print("Returning to the main menu...")
