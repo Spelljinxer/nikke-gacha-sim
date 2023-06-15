@@ -221,18 +221,10 @@ def enter_ticket_shop():
         if choice == "1":
             print(gold_ticket_shop)
             gold_choice = input("You wish to buy a character?: ")
-            if gold_choice == "1":
+            character = gold_ticket_items[int(gold_choice)-1]
+            if gold_choice == "1" or gold_choice == "2":
                 if gold_tickets >= 200:
                     gold_tickets -= 200
-                    character = gold_ticket_items[0]
-                    duplicate_handler(character, "SSR_characters")
-                    print(f"You purchased {character} for 200 gold tickets.")
-                else:
-                    print("Insufficient gold tickets. Please try again.")            
-            elif gold_choice == "2":
-                if gold_tickets >= 200:
-                    gold_tickets -= 200
-                    character = gold_ticket_items[1]
                     duplicate_handler(character, "SSR_characters")
                     print(f"You purchased {character} for 200 gold tickets.")
                 else:
@@ -243,16 +235,14 @@ def enter_ticket_shop():
         elif choice == "2":
             print(silver_ticket_shop)
             silver_choice = input("You wish to buy some spare body parts?: ")
-            if silver_choice == "1":
-                pass
-            elif silver_choice == "2":
-                pass
-            elif silver_choice == "3":
-                pass
-            elif silver_choice == "4":
-                pass
-            elif silver_choice == "5":
-                pass
+            character = silver_ticket_items[int(silver_choice)-1]
+            if silver_choice == "1" or silver_choice == "2" or silver_choice == "3" or silver_choice == "4" or silver_choice == "5":
+                if silver_tickets >= 200:
+                    silver_tickets -= 200
+                    duplicate_handler(character, "SR_characters")
+                    print(f"You purchased {character} for 200 silver tickets.")
+                else:
+                    print("Insufficient silver tickets. Please try again.")
             elif silver_choice == "6":
                 enter_ticket_shop()
                 print("You returned to the ticket shop.")
