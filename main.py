@@ -230,8 +230,13 @@ def enter_ticket_shop():
                 else:
                     print("Insufficient gold tickets. Please try again.")            
             elif gold_choice == "2":
-                character = gold_ticket_items[1]
-                duplicate_handler(character, "SSR_characters")
+                if gold_tickets >= 200:
+                    gold_tickets -= 200
+                    character = gold_ticket_items[1]
+                    duplicate_handler(character, "SSR_characters")
+                    print(f"You purchased {character} for 200 gold tickets.")
+                else:
+                    print("Insufficient gold tickets. Please try again.")
             elif gold_choice == "3":
                 enter_ticket_shop()
                 print("You returned to the ticket shop.")
