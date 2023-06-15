@@ -22,7 +22,7 @@ SCAM_PROBABILITY = 0.00074
 
 gems = STARTING_GEMS
 gold_tickets = 0
-silver_tickets = 0
+silver_tickets = 400
 inventory = {
     "SSR_characters": [],
     "SR_characters": [],
@@ -185,7 +185,7 @@ def initialise_gold_ticket_shop():
 
 def initialise_silver_ticket_shop():
     global silver_ticket_shop, silver_ticket_items
-    silver_ticket_items = random.sample(gacha_characters["SR_characters"], 5)
+    silver_ticket_items = random.sample(gacha_characters["SSR_characters"], 5)
     silver_ticket_shop = PrettyTable()
     silver_ticket_shop.field_names = ["Option","Item","Cost"]
     for i in range(len(silver_ticket_items)):
@@ -221,8 +221,8 @@ def enter_ticket_shop():
         if choice == "1":
             print(gold_ticket_shop)
             gold_choice = input("You wish to buy a character?: ")
-            character = gold_ticket_items[int(gold_choice)-1]
             if gold_choice == "1" or gold_choice == "2":
+                character = gold_ticket_items[int(gold_choice)-1]
                 if gold_tickets >= 200:
                     gold_tickets -= 200
                     duplicate_handler(character, "SSR_characters")
@@ -235,12 +235,15 @@ def enter_ticket_shop():
         elif choice == "2":
             print(silver_ticket_shop)
             silver_choice = input("You wish to buy some spare body parts?: ")
-            character = silver_ticket_items[int(silver_choice)-1]
             if silver_choice == "1" or silver_choice == "2" or silver_choice == "3" or silver_choice == "4" or silver_choice == "5":
+                character = silver_ticket_items[int(silver_choice)-1]
                 if silver_tickets >= 200:
-                    silver_tickets -= 200
-                    duplicate_handler(character, "SR_characters")
-                    print(f"You purchased {character} for 200 silver tickets.")
+                    if any(character in entry for entry in inventory["SR_characters"]) == False:
+                        print(f"You have not unlocked {character}. You cannot purchase spare body parts for this character.")
+                    else:
+                        silver_tickets -= 200
+                        duplicate_handler(character, "SSR_characters")
+                        print(f"You purchased {character} for 200 silver tickets.")
                 else:
                     print("Insufficient silver tickets. Please try again.")
             elif silver_choice == "6":
