@@ -45,9 +45,7 @@ def gacha_pull(user_input):
     result = random.random()
     if result <= SSR_PROBABILITY:
         chance = random.random()
-        if chance <= FEATURED_CHARACTER_PROBABILITY and chance > PILGRIM_PROBABILITY:
-            featured = True
-        elif chance <= PILGRIM_PROBABILITY:
+        if chance <= PILGRIM_PROBABILITY:
             character_group = "Pilgrims"
         else:
             character_group = "SSR_characters"
@@ -57,10 +55,7 @@ def gacha_pull(user_input):
         character_group = "Scams"
     else:
         character_group = "R_characters"
-    if featured != True:
-        character = random.choice(gacha_characters[character_group])
-    else:
-        character = featured_character
+    character = random.choice(gacha_characters[character_group])
 
     print("Pulling...")
     time.sleep(1)
@@ -179,15 +174,39 @@ def sexy_character():
 def secret_code():
     gems += 3000
     
+def initialise_gold_ticket_shop():
+    global gold_ticket_shop, gold_ticket_items
+    gold_ticket_items = random.sample(gacha_characters["SSR_characters"], 2)
+    gold_ticket_shop = PrettyTable()
+    gold_ticket_shop.field_names = ["Option","Item","Cost"]
+    for i in range(len(gold_ticket_items)):
+        gold_ticket_shop.add_row([i+1,gold_ticket_items[i],200])
+    gold_ticket_shop.add_row([3,"Return to Ticket Shop",None])
 
-gold_ticket_items = random.sample(gacha_characters["SSR_characters"], 2)
-gold_ticket_shop = PrettyTable()
-gold_ticket_shop.field_names = ["Option","Cost"]
-for i in range(len(gold_ticket_items)):
-    gold_ticket_shop.add_row([gold_ticket_items[i],200])
+def initialise_silver_ticket_shop():
+    global silver_ticket_shop, silver_ticket_items
+    silver_ticket_items = random.sample(gacha_characters["SR_characters"], 5)
+    silver_ticket_shop = PrettyTable()
+    silver_ticket_shop.field_names = ["Option","Item","Cost"]
+    for i in range(len(silver_ticket_items)):
+        silver_ticket_shop.add_row([i+1,silver_ticket_items[i],200])
+    silver_ticket_shop.add_row([6,"Return to Ticket Shop",None])
+
+def duplicate_handler(character, character_group):
+    if any(character in entry for entry in inventory[character_group]):
+        for i, existing_character in enumerate(inventory[character_group]):
+            if character in existing_character:
+                if '(' in existing_character:
+                    suffix = int(existing_character.split('(')[1][:-1]) + 1
+                    inventory[character_group][i] = f"{character}({suffix})"
+                else:
+                    inventory[character_group][i] = f"{character}(1)"
+                break
+    else:
+        inventory[character_group].append(character)
 
 def enter_ticket_shop():
-    global gold_tickets, silver_tickets, inventory
+    global gold_tickets, silver_tickets, inventory, gold_ticket_shop, gold_ticket_items, silver_ticket_shop, silver_ticket_items
 
     ticket_shop = PrettyTable()
     ticket_shop.field_names = ["Option","Description"]
@@ -195,46 +214,37 @@ def enter_ticket_shop():
     ticket_shop.add_row(["2","Silver Ticket Shop"])
     ticket_shop.add_row(["3","Return to Main Menu"])
 
-    print(ticket_shop)
+
     while True:
-        
+        print(ticket_shop)
         choice = input("Enter your choice: ")
         if choice == "1":
             print(gold_ticket_shop)
-            
-            # if gold_tickets >= 200:
-            #     print("Congratulations! You obtained the limited character!")
-            #     gold_tickets -= 200
-            #     #fix this
-            #     inventory["SSR_characters"].append(featured_character)
-            #     print(f"You obtained the limited character: {featured_character}")
-            #     break
-            # else:
-            #     print("Insufficient gold tickets. Please try again.")
+            gold_choice = input("You wish to buy a character?: ")
+            if gold_choice == "1":
+                if gold_tickets >= 200:
+                    gold_tickets -= 200
+                    character = gold_ticket_items[0]
+                    duplicate_handler(character, "SSR_characters")
+                    print(f"You purchased {character} for 200 gold tickets.")
+                else:
+                    print("Insufficient gold tickets. Please try again.")            
+                # enter_ticket_shop()
+            elif gold_choice == "2":
+                character = gold_ticket_items[1]
+                duplicate_handler(character, "SSR_characters")
+            elif gold_choice == "3":
+                enter_ticket_shop()
+                print("You returned to the ticket shop.")
         elif choice == "2":
-            silver_ticket_shop = PrettyTable()
-            silver_ticket_shop.field_names = ["Option","Cost"]
+            print(silver_ticket_shop)
             
-            #select 5-6 random SSR characters from the list for spare body parts, ADD THEIR NAMES, NOT JUST THEIR INDEX
-            # spare_body_parts = random.sample(gacha_characters["SSR_characters"], random.randint(5,6))
-            # for i in range(len(spare_body_parts)):
-            #     print(f"{i+1}. {spare_body_parts[i]}")
-
-            # if silver_tickets >= 200:
-            #     print("Congratulations! You bought a spare body part!")
-            #     silver_tickets -= 200
-            #     #fix this
-            #     spare_body_part = random.choice(gacha_characters["SSR_characters"])
-            #     inventory["SSR_characters"].append(spare_body_part)
-            #     print(f"You obtained a spare body part: {spare_body_part}")
-            #     break
-            # else:
-            #     print("Insufficient silver tickets. Please try again.")
         elif choice == "3":
             print("Returning to the main menu...")
             break
         else:
             print("Invalid choice. Please try again.")
+
 
 
 def show_menu():
@@ -255,6 +265,8 @@ def show_menu():
     print(menu_table)
 
 def run_gacha_simulator():
+    initialise_gold_ticket_shop()
+    initialise_silver_ticket_shop()
     while True:
         show_menu()
         choice = input("Enter your choice: ")
@@ -272,6 +284,7 @@ def run_gacha_simulator():
             display_inventory()
         elif choice == "7":
             enter_ticket_shop()
+            print("exited correctly")
         elif choice == "8":
             sexy_character()
         elif choice == "9":
