@@ -8,6 +8,7 @@ import random
 import time
 from prettytable import PrettyTable
 
+
 with open("gacha_characters.json") as f:
     gacha_characters = json.load(f)
 
@@ -22,7 +23,7 @@ SCAM_PROBABILITY = 0.00074
 
 gems = STARTING_GEMS
 gold_tickets = 0
-silver_tickets = 400
+silver_tickets = 0
 inventory = {
     "SSR_characters": [],
     "SR_characters": [],
@@ -129,21 +130,27 @@ def gacha_pull_10(user_input):
             inventory[character_group].append(character)
 
 def display_inventory():
-    print("\n--- Inventory ---")
-    print(f"Gems: {gems}")
-    print(f"Gold Tickets: {gold_tickets}")
-    print(f"Silver Tickets: {silver_tickets}")
-    print("--- Characters ---")
+    while True:
+        print("--- Inventory ---")
+        inventory_display = PrettyTable()
+        inventory_display.field_names = ["Items", "Total Amount"]
+        inventory_display.add_row(["Gems", gems])
+        inventory_display.add_row(["Gold Tickets", gold_tickets])
+        inventory_display.add_row(["Silver Tickets", silver_tickets])
+        print(inventory_display)
 
-    table = PrettyTable()
-    table.field_names = ["Rarity", "Characters"]
-
-    table.add_row(["\033[33mPilgrims\033[0m", "\n".join(inventory["Pilgrims"])])
-    table.add_row(["\033[93mSSR\033[0m", "\n".join(inventory["SSR_characters"])])
-    table.add_row(["\033[95mSR\033[0m", "\n".join(inventory["SR_characters"])])
-    table.add_row(["\033[94mR\033[0m", "\n".join(inventory["R_characters"])])
-    
-    print(table)
+        print("--- Characters ---")
+        table = PrettyTable()
+        table.field_names = ["Rarity", "Characters"]
+        table.add_row(["\033[33mPilgrims\033[0m", "\n".join(inventory["Pilgrims"])])
+        table.add_row(["\033[93mSSR\033[0m", "\n".join(inventory["SSR_characters"])])
+        table.add_row(["\033[95mSR\033[0m", "\n".join(inventory["SR_characters"])])
+        table.add_row(["\033[94mR\033[0m", "\n".join(inventory["R_characters"])])
+        
+        print(table)
+        print("Enter any key to continue")
+        input()
+        break
 
 def buy_gems():
     global gems
