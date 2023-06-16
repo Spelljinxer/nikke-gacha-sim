@@ -1,6 +1,7 @@
 import json
 import random
 import time
+import os
 from prettytable import PrettyTable
 
 with open("gacha_characters.json") as f:
@@ -15,16 +16,40 @@ R_PROBABILITY = 0.53
 PILGRIM_PROBABILITY = 0.00075
 SCAM_PROBABILITY = 0.00074
 
-gems = STARTING_GEMS
 gold_tickets = 0
 silver_tickets = 0
-inventory = {
-    "SSR_characters": [],
-    "SR_characters": [],
-    "R_characters": [],
-    "Pilgrims": [],
-    "Scams": []
-}
+
+#first, create a file called "inventory.json"
+#then within that json we want the following fields:
+# Gems, Gold_Tickets, Silver_Tickets, SSR_characters, SR_characters, R_characters, Pilgrims, Scams
+# we will use this inventory to store the data of the user's inventory
+filename = "inventory.json"
+
+if os.path.exists(filename):
+    # File exists, load the existing inventory data
+    with open(filename, "r") as file:
+        inventory = json.load(file)
+    
+    
+else:
+    # File doesn't exist, create it and initialize the inventory
+    inventory = {
+        "Gems": STARTING_GEMS,
+        "Gold_Tickets": gold_tickets,
+        "Silver_Tickets": silver_tickets,
+        "SSR_characters": [],
+        "SR_characters": [],
+        "R_characters": [],
+        "Pilgrims": [],
+        "Scams": []
+    }
+    # Save the initial inventory data to the file
+    with open(filename, "w") as file:
+        json.dump(inventory, file)
+    
+gems = inventory["Gems"]
+gold_tickets = inventory["Gold_Tickets"]
+silver_tickets = inventory["Silver_Tickets"]
 
 featured_character = random.choice(gacha_characters["SSR_characters"])
 def gacha_pull(user_input):
@@ -72,7 +97,10 @@ def gacha_pull(user_input):
                 break
     else:
         inventory[character_group].append(character)
-
+    
+    write_to_inventory()
+ 
+     
 def gacha_pull_10(user_input):
     global gems, gold_tickets, silver_tickets, inventory
 
@@ -122,6 +150,8 @@ def gacha_pull_10(user_input):
                     break
         else:
             inventory[character_group].append(character)
+
+        write_to_inventory()
 
 def display_inventory():
     while True:
@@ -281,3 +311,15 @@ def show_menu():
 
     print("\n--- Main Menu ---")
     print(menu_table)
+
+#we want to store a local json file that stores the inventory,
+# fields are: Gems, Gold_tickets, Silver_tickets, SSR_characters, SR_characters, R_characters
+def write_to_inventory():
+    global gems, gold_tickets, silver_tickets, inventory
+    inventory["Gems"] = gems
+    inventory["Gold_Tickets"] = gold_tickets
+    inventory["Silver_Tickets"] = silver_tickets
+    with open("inventory.json", "w") as f:
+        json.dump(inventory, f)    
+
+
