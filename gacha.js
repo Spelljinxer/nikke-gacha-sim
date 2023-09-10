@@ -108,15 +108,15 @@ setInterval(updateTimerElement, 1000);
       { "name": "Rapi", "image": "./characters/SR/Mihara.webp"},
     ],
     "R": [
-      { "name": "Product 08", "image": "./characters/R/Product08.webp"},
-      { "name": "Product 12", "image": "./characters/R/Product12.webp"},
-      { "name": "Product 23", "image": "./characters/R/Product23.webp"},
-      { "name": "Soldier EG", "image": "./characters/R/SoldierEG.webp"},
-      { "name": "Soldier FA", "image": "./characters/R/SoldierFA.webp"},
-      { "name": "Soldier OW", "image": "./characters/R/SoldierOW.webp"},
-      { "name": "iDoll Flower", "image": "./characters/R/idollFlower.webp"},
-      { "name": "iDoll Ocean", "image": "./characters/R/idollOcean.webp"},
-      { "name": "iDoll Sun", "image": "./characters/R/idollSun.webp"},
+      { "name": "Product 08", "image": "/characters/R/Product08.webp"},
+      { "name": "Product 12", "image": "/characters/R/Product12.webp"},
+      { "name": "Product 23", "image": "/characters/R/Product23.webp"},
+      { "name": "Soldier EG", "image": "/characters/R/SoldierEG.webp"},
+      { "name": "Soldier FA", "image": "/characters/R/SoldierFA.webp"},
+      { "name": "Soldier OW", "image": "/characters/R/SoldierOW.webp"},
+      { "name": "iDoll Flower", "image": "/characters/R/idollFlower.webp"},
+      { "name": "iDoll Ocean", "image": "/characters/R/idollOcean.webp"},
+      { "name": "iDoll Sun", "image": "/characters/R/idollSun.webp"},
     ]
   };
 
