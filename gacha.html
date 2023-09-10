@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikke Gacha Simulator</title>
+    <link rel = "icon" href = "./img/icon.webp" type = "image/x-icon">
+    <link rel="stylesheet" href="./gacha.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <script src="https://kit.fontawesome.com/f4e6cce133.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <header class="timers">
+    <ul class="nav__timers">
+        <li id="dailyReset"></li>
+    </ul>
+  </header>
+  <header class="navbar">
+    <a href="../home.html"><img class="logo" src="../img/logo.png" alt="logo"></a>
+    <nav>
+      <ul class="nav__links">
+        <li><a href="#">Gacha Simulator</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="text-container">
+    <h1>Gacha Simulator</h1>
+  </div>
+
+  <div class="gacha-window">
+
+  </div>
+
+  <div class="pull-container">
+    <button class="pull" onclick="pullCharacter('single')">1x <img src="./img/ordinaryRecruit.webp" alt="Single Pull" id="ordinaryTicket"></button>
+    <button class="pull" onclick="pullCharacter('multi')">10x <img src="./img/ordinaryRecruit.webp" alt="Multi Pull" id="ordinaryTicket"></button>
+</div>
+
+<script src="./gacha.js"></script>
+</body>
+</html>

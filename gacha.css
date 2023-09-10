@@ -1,0 +1,207 @@
+@import url('https://fonts.cdnfonts.com/css/futura-condensed-pt');
+@import url(https://db.onlinewebfonts.com/c/377923bee59593973f7cf569892baeb8?family=SolanoGothicMVB-Rg);
+
+:root{
+  --main-bg-color: #202226;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--main-bg-color);
+    color: #fff;
+    /* font-family: 'Futura Condensed PT', sans-serif; */
+}
+
+li, a{
+  font-family: 'Futura Condensed PT', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #edf0f1;
+  text-decoration: none;
+}
+/* --------------------------------------- timers -------------------------------------------------- */
+.timers{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+
+/* --------------------------------------- navbar -------------------------------------------------- */
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  /* background-color: yellow; */
+}
+
+.logo{
+  cursor: pointer;
+  margin-left: auto;
+  max-width: 100%;
+}
+
+.nav__links, .nav__timers{
+  list-style: none;
+}
+
+.nav__links li,  .nav__timers li{
+  display: inline-block;
+  padding: 0px 20px;
+  transition: all 0.3s ease 0s;
+}
+
+.nav__links li a{
+  border: 1px solid #6b6e72;
+  padding: 8px 16px;
+  display: inline-block;
+  border-radius: 5px;;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.nav__links li a:hover{
+  border-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav {
+    margin-top: 10px; /* Add space between logo and links */
+  }
+
+  .nav__links {
+    flex-direction: column; /* Stack links vertically */
+    margin-top: 10px;
+  }
+
+  .nav__links li {
+    margin: 5px 0; /* Adjust margin for stacked links */
+  }
+
+  .logo {
+    max-width: 80%;
+  }
+}
+
+/* --------------------------------------- text-container -------------------------------------------------- */
+
+.text-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 0;
+  font-family: 'Montserrat', sans-serif;
+  /* background-color: red; */
+}
+
+.pull-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 10px 0;
+  font-family: 'Montserrat', sans-serif;
+  /* background-color: red; */
+}
+.pull-container {
+  text-align: center; /* Center align the buttons */
+}
+
+button.pull{
+  padding: 20px 40px;
+  border: 2px solid #ffffff;
+  background: linear-gradient(to right, #ffffff 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-position 0.3s, color 0.3s;
+  margin-top: 30px;
+  margin-left: 30px;
+  border-radius: 5%;
+  -webkit-border-radius: 5%;
+  -moz-border-radius: 5%;
+  -ms-border-radius: 5%;
+  -o-border-radius: 5%;
+}
+
+button.pull:hover {
+  background-position: left bottom; /* Move gradient to the left on hover */
+  color: #000000; /* Text color on hover */
+}
+
+#ordinaryTicket, #specialTicket{
+  width: 2em;
+  height: 2em;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* --------------------------------------- gacha -------------------------------------------------- */
+.gacha-window {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 15px; 
+  justify-content: center;
+  max-width: 500px; 
+  margin: 0 auto; 
+}
+
+
+.gacha-card{
+  width: 120px;
+  height: 280px;
+  object-fit: cover;
+  border: 2px solid transparent; 
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+@media screen and (max-width: 768px) {
+
+  .gacha-card {
+    width: 60px; 
+    height: 140px;
+  }
+}
+
+.gold-border {
+  border-color: gold;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+}
+
+.orange-border {
+  border-color: orange;
+  box-shadow: 0 0 40px rgba(255, 165, 0, 0.5);
+}
+
+.purple-border {
+  border-color: purple;
+  box-shadow: 0 0 20px rgba(128, 0, 128, 0.5);
+}
+
+.blue-border {
+  border-color: blue;
+  box-shadow: 0 0 20px rgba(0, 0, 255, 0.5);
+}

@@ -19,10 +19,6 @@ SCAM_PROBABILITY = 0.00074
 gold_tickets = 0
 silver_tickets = 0
 
-#first, create a file called "inventory.json"
-#then within that json we want the following fields:
-# Gems, Gold_Tickets, Silver_Tickets, SSR_characters, SR_characters, R_characters, Pilgrims, Scams
-# we will use this inventory to store the data of the user's inventory
 filename = "inventory.json"
 
 if os.path.exists(filename):
@@ -265,6 +261,7 @@ def enter_ticket_shop():
                 if gold_tickets >= 200:
                     gold_tickets -= 200
                     duplicate_handler(character, "SSR_characters")
+                    write_to_inventory()
                     print(f"You purchased {character} for 200 gold tickets.")
                 else:
                     print("Insufficient gold tickets. Please try again.")
@@ -282,6 +279,7 @@ def enter_ticket_shop():
                     else:
                         silver_tickets -= 200
                         duplicate_handler(character, "SSR_characters")
+                        write_to_inventory()
                         print(f"You purchased {character} for 200 silver tickets.")
                 else:
                     print("Insufficient silver tickets. Please try again.")
@@ -312,8 +310,7 @@ def show_menu():
     print("\n--- Main Menu ---")
     print(menu_table)
 
-#we want to store a local json file that stores the inventory,
-# fields are: Gems, Gold_tickets, Silver_tickets, SSR_characters, SR_characters, R_characters
+
 def write_to_inventory():
     global gems, gold_tickets, silver_tickets, inventory
     inventory["Gems"] = gems
