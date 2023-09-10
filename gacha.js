@@ -173,8 +173,7 @@ setInterval(updateTimerElement, 1000);
     console.log("you pulled " + character.name);
     characterImage.src = character.image;
     characterImage.alt = character.name;
-    characterImage.className = "gacha-card"; // Add a class for styling
-  
+    characterImage.className = "gacha-card"; 
     // Determine rarity from category
     var category = Object.keys(charactersData).find(key => charactersData[key].includes(character));
     if (category) {
