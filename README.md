@@ -7,7 +7,7 @@ It provides functionality for both single pulls and 10-pull gacha draws.
 
 # TODO
 - [ ] Inventory System
-- [ ] Multiple Bannders (ordinary, limited, collab, etc.)
+- [ ] Multiple Banners (ordinary, limited, collab, etc.)
 
 #
 ```
