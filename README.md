@@ -1,6 +1,7 @@
 # Nikke Gacha Simulator
 
 A CLI-based gacha simulator based on [NIKKE](https://nikke-en.com/). This simulator allows you to simulate gacha pulls and manage your inventory of characters. It provides functionality for both single pulls and 10-pull gacha draws.
+For the web-based version, see [nikke-gacha-sim-web](https://github.com/Spelljinxer/nikke-gacha-sim-web)
 
 # Installation
 To use the Nikke Gacha Simulator, you need to have Python 3.x installed on your system. You also need to install the `prettytable` library.
