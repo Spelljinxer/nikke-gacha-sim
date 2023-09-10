@@ -117,7 +117,6 @@ setInterval(updateTimerElement, 1000);
       { "name": "iDoll Flower", "image": "./characters/R/iDollFlower.webp"},
       { "name": "iDoll Ocean", "image": "./characters/R/iDollOcean.webp"},
       { "name": "iDoll Sun", "image": "./characters/R/iDollSun.webp"},
-      { "name": "iDoll Sun", "image": "./characters/R/iDollSun.webp"},
     ]
   };
 
