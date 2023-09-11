@@ -353,8 +353,8 @@ button.pull:hover {
 }
 
 .gold-border {
-  border-color: gold;
-  box-shadow: 0 0 60px rgba(255, 215, 0, 0.5);
+  border-color: rgb(241, 198, 6);
+  box-shadow: 0 0 60px rgba(241, 198, 6, 0.5);
 }
 
 .orange-border {
