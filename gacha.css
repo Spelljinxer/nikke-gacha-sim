@@ -36,8 +36,11 @@ li, a{
 }
 
 
-body::-webkit-scrollbar {
-  width: 0.25rem;
+body::-webkit-scrollbar,
+body::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-track {
+  /* width: 0.1rem; */
+  width: 3px;
 }
 
 body::-webkit-scrollbar-track {
@@ -80,6 +83,8 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   align-items: center;
   height: 100%;
+  overflow: auto; /* looks ugly in chrome ? */
+  scrollbar-width: none;
 }
 
 .nav-item {
@@ -88,7 +93,7 @@ body::-webkit-scrollbar-thumb {
 
 /* sets last item to put */
 /* .nav-item:last-child {
-  margin-top: auto; 
+  margin-top: auto;
 } */
 
 .nav-link {
@@ -178,6 +183,10 @@ body::-webkit-scrollbar-thumb {
   transform: rotate(-180deg);
 }
 
+#github{
+  border-top: 1px solid #5a5a5a;
+}
+
 /* Small screens */
 @media only screen and (max-width: 600px) {
   .navbar {
@@ -197,6 +206,11 @@ body::-webkit-scrollbar-thumb {
   .nav-link {
     justify-content: center;
     align-items: center;
+  }
+
+  #github{
+    border-top: none;
+    border-left: 1px solid #5a5a5a;
   }
 
   main {
@@ -255,8 +269,8 @@ body::-webkit-scrollbar-thumb {
 
 button.pull{
   padding: 10px 40px;
-  border: 2px solid #ffffff;
-  background: linear-gradient(to right, #ffffff 50%, transparent 50%);
+  border: 2px solid var(--bg-primary);
+  background: linear-gradient(to right, #23232e 50%, transparent 50%);
   background-size: 200% 100%;
   background-position: right bottom;
   color: #ffffff;
@@ -275,7 +289,7 @@ button.pull{
 
 button.pull:hover {
   background-position: left bottom; 
-  color: #000000; 
+  color: white;
 }
 
 #ordinaryTicket, #specialTicket{
