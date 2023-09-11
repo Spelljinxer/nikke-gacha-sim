@@ -23,7 +23,7 @@ body{
     background-color: var(--bg-secondary);
     color: #fff;
     /* font-family: 'Futura Condensed PT', sans-serif; */
-    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-y: auto; /* TEMPORARY - CHANGE LATER IF THIS CAUSES ISSUES */
     overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
@@ -40,7 +40,7 @@ body::-webkit-scrollbar,
 body::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-track {
   /* width: 0.1rem; */
-  width: 3px;
+  width: 5px;
 }
 
 body::-webkit-scrollbar-track {
@@ -48,7 +48,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #6649b8;
+  background: var(--bg-primary);
 }
 /* --------------------------------------- title -------------------------------------------------- */
 .title{
@@ -312,7 +312,7 @@ button.pull:hover {
 
 /* --------------------------------------- gacha -------------------------------------------------- */
 .gacha-container{
-  margin-top: 40px;
+  margin-top: 10px;
 }
 .gacha-window {
   display: grid;
