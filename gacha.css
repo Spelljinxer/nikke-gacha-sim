@@ -50,8 +50,8 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
-/* --------------------------------------- timers -------------------------------------------------- */
-.timers{
+/* --------------------------------------- title -------------------------------------------------- */
+.title{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,8 +59,16 @@ body::-webkit-scrollbar-thumb {
   padding: 10px 0;
 }
 
-.nav__timers{
+.nav__title{
   list-style: none;
+}
+
+.nav__title h1{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.15ch;
+  color: #fff;
+  text-align: center;
 }
 
 /* --------------------------------------- navbar -------------------------------------------------- */
@@ -139,11 +147,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 .fa-primary {
-  color: #ff7eee;
+  color: #df938f;
 }
 
 .fa-secondary {
-  color: #df49a6;
+  color: #b3605c;
 }
 
 .fa-primary,
@@ -213,9 +221,6 @@ body::-webkit-scrollbar-thumb {
     border-left: 1px solid #5a5a5a;
   }
 
-  main {
-    margin: 0;
-  }
 }
 
 /* Large screens */
@@ -300,6 +305,9 @@ button.pull:hover {
 }
 
 /* --------------------------------------- gacha -------------------------------------------------- */
+.gacha-container{
+  margin-top: 40px;
+}
 .gacha-window {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -321,6 +329,7 @@ button.pull:hover {
 }
 
 @media screen and (max-width: 768px) {
+
   .gacha-window{
     max-height: 300px;
     height: 300px;
