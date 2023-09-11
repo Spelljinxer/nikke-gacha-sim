@@ -7,8 +7,8 @@ It provides functionality for both single pulls and 10-pull gacha draws.
 
 # TODO
 - [ ] Inventory System
-- [ ] Multiple Banners (ordinary, limited, collab, etc.)
-
+  - maybe a display popup window??
+- [x] Multiple Banners (ordinary, limited, collab, etc.) (sort of done, just need to add the pages)
 #
 ```
 Note: NIKKE and the associated characters are the property of SHIFT UP Corporation and Level Infinite. This project is not affiliated with or endorsed by SHIFT UP Corporation or Level Infinite.
