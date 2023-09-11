@@ -86,9 +86,6 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 
-.active a{
-  background: var(--bg-secondary);
-}
 
 /* sets last item to put */
 /* .nav-item:last-child {
@@ -105,7 +102,7 @@ body::-webkit-scrollbar-thumb {
   transition: var(--transition-speed);
 }
 
-.nav-link:hover {
+.nav-link:hover, .active a {
   filter: grayscale(0%) opacity(1);
   background: var(--bg-secondary);
   color: var(--text-secondary);
