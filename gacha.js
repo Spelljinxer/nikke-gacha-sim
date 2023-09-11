@@ -1,30 +1,3 @@
-function calculateTimeUntilReset() {
-  const now = new Date();
-  const resetTime = new Date(now);
-  resetTime.setUTCHours(20, 0, 0, 0); // Set to 4 AM UTC+08
-
-  if (now > resetTime) {
-    resetTime.setUTCDate(resetTime.getUTCDate() + 1);
-  }
-
-  const timeDiff = resetTime - now; 
-  let hours = Math.floor(timeDiff / (1000 * 60 * 60));
-  let minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-  return { hours, minutes };
-}
-
-function updateTimerElement() {
-  const timerElement = document.getElementById('dailyReset');
-
-  const { hours, minutes } = calculateTimeUntilReset();
-
-  timerElement.textContent = `Time Until Daily Reset: ${hours}h ${minutes}m`;
-}
-
-updateTimerElement();
-
-setInterval(updateTimerElement, 1000);
-
 
 
 // --------------------------------------------------
@@ -120,6 +93,9 @@ setInterval(updateTimerElement, 1000);
       { "name": "iDoll Sun", "image": "./characters/R/iDollSun.webp"},
     ]
   };
+
+
+// --------------------------------------------------
 
   function getRandomCharacter(rarity) {
     var characters = charactersData[rarity];
