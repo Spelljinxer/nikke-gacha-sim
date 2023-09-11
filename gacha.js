@@ -1,5 +1,7 @@
 
 
+
+
 // --------------------------------------------------
 
 
@@ -94,9 +96,6 @@
     ]
   };
 
-
-// --------------------------------------------------
-
   function getRandomCharacter(rarity) {
     var characters = charactersData[rarity];
     var randomIndex = Math.floor(Math.random() * characters.length);
@@ -166,5 +165,4 @@
     }
     gachaWindow.appendChild(characterImage);
   }
-
 
