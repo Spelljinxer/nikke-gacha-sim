@@ -3,6 +3,13 @@
 
 :root{
   --main-bg-color: #202226;
+  font-size: 16px;
+  font-family: 'Open Sans';
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+  --transition-speed: 600ms;
 }
 
 
@@ -13,17 +20,32 @@
 }
 
 body{
-    background-color: var(--main-bg-color);
+    background-color: var(--bg-secondary);
     color: #fff;
     /* font-family: 'Futura Condensed PT', sans-serif; */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 li, a{
-  font-family: 'Futura Condensed PT', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 20px;
   color: #edf0f1;
   text-decoration: none;
+}
+
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #6649b8;
 }
 /* --------------------------------------- timers -------------------------------------------------- */
 .timers{
@@ -34,83 +56,191 @@ li, a{
   padding: 10px 0;
 }
 
-
-/* --------------------------------------- navbar -------------------------------------------------- */
-
-.navbar{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 10%;
-  /* background-color: yellow; */
-}
-
-.logo{
-  cursor: pointer;
-  margin-right: auto;
-  max-width: 100%;
-}
-
-.nav__links, .nav__timers{
+.nav__timers{
   list-style: none;
 }
+/* --------------------------------------- navbar -------------------------------------------------- */
 
-.nav__links li,  .nav__timers li{
-  display: inline-block;
-  padding: 0px 20px;
-  transition: all 0.3s ease 0s;
+.navbar {
+  position: fixed;
+  background-color: var(--bg-primary);
+  transition: width 400ms ease;
+  -webkit-transition: width 400ms ease;
+  -moz-transition: width 400ms ease;
+  -ms-transition: width 400ms ease;
+  -o-transition: width 400ms ease;
 }
 
-.nav__links li a{
-  border: 1px solid #6b6e72;
-  padding: 8px 16px;
-  display: inline-block;
-  border-radius: 5px;;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
 
-.nav__links li a:hover{
-  border-color: white;
+.nav-item {
+  width: 100%;
 }
 
-@media screen and (max-width: 768px) {
+.active a{
+  background: var(--bg-secondary);
+}
+
+/* sets last item to put */
+/* .nav-item:last-child {
+  margin-top: auto; 
+} */
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: var(--transition-speed);
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+  transition: var(--transition-speed);
+  -webkit-transition: var(--transition-speed);
+  -moz-transition: var(--transition-speed);
+  -ms-transition: var(--transition-speed);
+  -o-transition: var(--transition-speed);
+}
+
+.nav-link svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+.nav-link img{
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  width: 3rem;
+  margin: 0 1rem;
+}
+
+.fa-primary {
+  color: #ff7eee;
+}
+
+.fa-secondary {
+  color: #df49a6;
+}
+
+.fa-primary,
+.fa-secondary {
+  transition: var(--transition-speed);
+}
+
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-size: 0.05rem;
+  letter-spacing: 0.2ch;
+  width: 100%;
+}
+
+.logo svg {
+  transform: rotate(0deg);
+  transition: var(--transition-speed);
+}
+
+.logo-text{
+  display: inline;
+  position: absolute;
+  left: -999px;
+  transition: 400ms;
+  -webkit-transition: 400ms;
+  -moz-transition: 400ms;
+  -ms-transition: 400ms;
+  -o-transition: 400ms;
+}
+
+.navbar:hover .logo svg {
+  transform: rotate(-180deg);
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
   .navbar {
-    flex-direction: column; /* Stack items vertically */
-    align-items: center;
-    text-align: center;
-  }
-
-  .nav {
-    margin-top: 10px; /* Add space between logo and links */
-  }
-
-  .nav__links {
-    flex-direction: column; /* Stack links vertically */
-    margin-top: 10px;
-  }
-
-  .nav__links li {
-    margin: 5px 0; /* Adjust margin for stacked links */
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
   }
 
   .logo {
-    max-width: 80%;
+    display: none;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .nav-link {
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    margin: 0;
   }
 }
 
-/* --------------------------------------- text-container -------------------------------------------------- */
+/* Large screens */
+@media only screen and (min-width: 600px) {
+  .navbar {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+  }
+
+  .navbar:hover {
+    width: 16rem;
+  }
+
+  .navbar:hover .link-text {
+    display: inline;
+  }
+
+  .navbar:hover .logo svg
+  {
+    margin-left: 11rem;
+  }
+
+  .navbar:hover .logo-text
+  {
+    left: 0px;
+  }
+}
+
+
+/* --------------------------------------- gacha-container -------------------------------------------------- */
 
 .text-container{
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  padding: 10px 0;
-  font-family: 'Montserrat', sans-serif;
-  /* background-color: red; */
+  align-items: center;
 }
 
 .pull-container{
@@ -123,7 +253,7 @@ li, a{
   /* background-color: red; */
 }
 .pull-container {
-  text-align: center; /* Center align the buttons */
+  text-align: center; 
 }
 
 button.pull{
@@ -147,8 +277,8 @@ button.pull{
 }
 
 button.pull:hover {
-  background-position: left bottom; /* Move gradient to the left on hover */
-  color: #000000; /* Text color on hover */
+  background-position: left bottom; 
+  color: #000000; 
 }
 
 #ordinaryTicket, #specialTicket{
@@ -166,8 +296,9 @@ button.pull:hover {
   justify-content: center;
   max-width: 500px; 
   margin: 0 auto; 
+  max-height: 600px;
+  height: 600px;
 }
-
 
 .gacha-card{
   width: 120px;
@@ -179,10 +310,19 @@ button.pull:hover {
 }
 
 @media screen and (max-width: 768px) {
-
+  .gacha-window{
+    max-height: 300px;
+    height: 300px;
+    grid-gap: 5px;
+    margin-left: 3px;
+  }
   .gacha-card {
     width: 60px; 
     height: 140px;
+  }
+
+  .pull-container{
+    margin-top: 40px;
   }
 }
 
@@ -205,3 +345,5 @@ button.pull:hover {
   border-color: blue;
   box-shadow: 0 0 20px rgba(0, 0, 255, 0.5);
 }
+
+

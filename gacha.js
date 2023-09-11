@@ -26,6 +26,7 @@ updateTimerElement();
 setInterval(updateTimerElement, 1000);
 
 
+
 // --------------------------------------------------
 
 
@@ -189,3 +190,5 @@ setInterval(updateTimerElement, 1000);
     }
     gachaWindow.appendChild(characterImage);
   }
+
+
