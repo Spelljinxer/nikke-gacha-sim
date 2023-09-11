@@ -113,6 +113,8 @@
         rarity = 'SSR';
         var randomPilgrim = Math.random();
         console.log("randomPilgrim: " + randomPilgrim);
+        
+        //tested this, its actually possible - averaging around 2000-3000 pulls
         if (randomPilgrim < 0.0006) {
           // You got a Pilgrim SSR!
           rarity = 'Pilgrim';
