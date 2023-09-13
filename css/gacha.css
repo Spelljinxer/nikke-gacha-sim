@@ -331,13 +331,35 @@ button.pull:hover {
   height: 600px;
 }
 
-.gacha-card{
+.gacha-card {
   width: 120px;
   height: 280px;
   object-fit: cover;
   border: 2px solid transparent; 
   border-radius: 10px; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* Start with zero opacity */
+}
+
+/*
+ * @keyframes fadeIn these needs modifying for the future... 
+ */
+
+.gacha-card:nth-child(1) { animation: fadeIn 0.3s 0.03s forwards; -webkit-animation: fadeIn 0.3s 0.03s forwards; }
+.gacha-card:nth-child(2) { animation: fadeIn 0.3s 0.05s forwards; -webkit-animation: fadeIn 0.3s 0.05s forwards; }
+.gacha-card:nth-child(3) { animation: fadeIn 0.3s 0.08s forwards; -webkit-animation: fadeIn 0.3s 0.08s forwards; }
+.gacha-card:nth-child(4) { animation: fadeIn 0.3s 0.1s forwards; -webkit-animation: fadeIn 0.3s 0.1s forwards; }
+.gacha-card:nth-child(5) { animation: fadeIn 0.3s 0.13s forwards; -webkit-animation: fadeIn 0.3s 0.13s forwards; }
+.gacha-card:nth-child(6) { animation: fadeIn 0.3s 0.15s forwards; -webkit-animation: fadeIn 0.3s 0.15s forwards; }
+.gacha-card:nth-child(7) { animation: fadeIn 0.3s 0.18s forwards; -webkit-animation: fadeIn 0.3s 0.18s forwards; }
+.gacha-card:nth-child(8) { animation: fadeIn 0.3s 0.2s forwards; -webkit-animation: fadeIn 0.3s 0.2s forwards; }
+.gacha-card:nth-child(9) { animation: fadeIn 0.3s 0.23s forwards; -webkit-animation: fadeIn 0.3s 0.23s forwards; }
+.gacha-card:nth-child(10) { animation: fadeIn 0.3s 0.25s forwards; -webkit-animation: fadeIn 0.3s 0.25s forwards; }
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  50% { opacity: 0.5;}
+  100% { opacity: 1; }
 }
 
 @media screen and (max-width: 768px) {

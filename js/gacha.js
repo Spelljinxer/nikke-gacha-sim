@@ -98,12 +98,10 @@ function init(data) {
     function limitedPull(){
       var rarity;
       var randomSSR = Math.random();
-      console.log("randomSSR long: " + randomSSR);
       if(randomSSR <= SSR_RATE){
         rarity =  'SSR';
         var randomLimited = Math.random();
-        console.log("randomLimited: " + randomLimited);
-        console.log("LIMITED_RATE: " + LIMITED_RATE)
+
         if(randomLimited <= LIMITED_RATE){
           rarity = 'Limited';
           console.log("You pulled the Limited SSR!");
