@@ -123,7 +123,7 @@ function init(data) {
 
 }
 
-fetch('./characters.json')
+fetch('./data/characters.json')
   .then(response => response.json())
   .then(data => {
     init(data);
