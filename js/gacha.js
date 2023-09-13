@@ -15,16 +15,17 @@ var R_RATE = 0.53;
 var PILGRIM_RATE = 0.0006;
 
 var LIMITED_RATE = 0.02;
+var limited_flag = false;
 
 function init(data) {
   var charactersData = data;
   
   document.querySelector('.pull-single').addEventListener('click', function() {
-    pullCharacter('single');
+    pullCharacter('single', limited_flag);
   });
 
   document.querySelector('.pull-multi').addEventListener('click', function() {
-    pullCharacter('multi');
+    pullCharacter('multi', limited_flag);
   });
 
   //this just simply gets the query from ?activeBanner= and sets the current banner to that
@@ -42,12 +43,14 @@ function init(data) {
 
     for (var i = 0; i < limitedCharacters.length; i++) {
         // console.log("Comparing:", limitedCharacters[i].name, activeBanner); <-- debug
-        
         if (limitedCharacters[i].name !== activeBanner) {
           limitedCharacters[i].currentBanner = false;
+          limited_flag = false;
         }
         else{
           limitedCharacters[i].currentBanner = true;
+          limited_flag = true;
+          console.log("limited_flag", limited_flag)
           console.log("Updated currentBanner for " + activeBanner + ":", limitedCharacters[i].currentBanner);
           break;
         }
@@ -72,28 +75,64 @@ function init(data) {
   console.log("LIMITED_RATE: " + LIMITED_RATE)
 
   //picks a random character from the rarity pile (fix later??)
-  function getRandomCharacter(rarity) {
+  function getRandomCharacter(rarity, limited) {
     var characters = charactersData[rarity];
+    
+    if (limited && rarity == 'Limited') {
+        var limitedCharacters = charactersData.Limited;
+        var limitedCharacterIndex = limitedCharacters.findIndex(character => character.currentBanner === true);
+        if (limitedCharacterIndex !== -1) {
+            return limitedCharacters[limitedCharacterIndex];
+        }
+    }
+    
     var randomIndex = Math.floor(Math.random() * characters.length);
     return characters[randomIndex];
   }
 
   //does a single or multi pull
-  function pullCharacter(pullType) {
+  function pullCharacter(pullType, limited) {
     var gachaWindow = document.querySelector(".gacha-window");
 
+    
+    function limitedPull(){
+      var rarity;
+      var randomSSR = Math.random();
+      console.log("randomSSR long: " + randomSSR);
+      if(randomSSR <= SSR_RATE){
+        rarity =  'SSR';
+        var randomLimited = Math.random();
+        console.log("randomLimited: " + randomLimited);
+        console.log("LIMITED_RATE: " + LIMITED_RATE)
+        if(randomLimited <= LIMITED_RATE){
+          rarity = 'Limited';
+          console.log("You pulled the Limited SSR!");
+        }
+        if(randomLimited <= PILGRIM_RATE){
+          rarity = 'Pilgrim';
+          console.log("You pulled a Pilgrim SSR!");
+        }
+      }
+      else if(randomSSR <= SR_RATE){
+        rarity = 'SR';
+      }
+      else{
+        rarity = 'R';
+      }
+      var character = getRandomCharacter(rarity, limited_flag);
+      displayCharacter(character, gachaWindow);
+    }
+    
+    
     //the main body of the gacha
     function doPull() {
       var rarity;
       var randomSSR = Math.random();
-      console.log("randomSSR: " + randomSSR)
       if (randomSSR <= SSR_RATE) {
         rarity = 'SSR';
         var randomPilgrim = Math.random();
         console.log("randomPilgrim: " + randomPilgrim);
-        //tested this, its actually possible - averaging around 2000-3000 pulls
         if (randomPilgrim <= PILGRIM_RATE) {
-          // You got a Pilgrim SSR!
           rarity = 'Pilgrim';
           console.log("You pulled a Pilgrim SSR!");
         }
@@ -108,16 +147,24 @@ function init(data) {
   
     if (pullType === 'single') {
       if (gachaWindow.children.length >= 10) {
-        // Clear the window and do another pull
         gachaWindow.innerHTML = "";
       }
-  
-      doPull();
+      if(limited){
+        limitedPull();
+      }
+      else{
+        doPull();
+      }
     } else if (pullType === 'multi') {
-      gachaWindow.innerHTML = ""; // Clear previous pulls
+      gachaWindow.innerHTML = "";
   
       for (var i = 0; i < 10; i++) {
-        doPull();
+        if(limited){
+          limitedPull();
+        }
+        else{
+          doPull();
+        }
       }
     }
   }
@@ -126,7 +173,7 @@ function init(data) {
   function displayCharacter(character, gachaWindow) {
     try {
       var characterImage = document.createElement("img");
-      console.log("you pulled " + character.name);
+      // console.log("you pulled " + character.name);
 
       characterImage.src = character.image;
       characterImage.alt = character.name;
