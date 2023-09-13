@@ -19,7 +19,7 @@ function init(data) {
     }
     
     var activeBanner = getQueryParameter("activeBanner") || "default";
-  
+    //sets flag to true for the limitecharacter
     console.log("activeBanner: " + activeBanner);
     if (activeBanner != "default") {
       var limitedCharacters = charactersData.Limited;
@@ -86,18 +86,6 @@ function init(data) {
     try {
         var characterImage = document.createElement("img");
         console.log("you pulled " + character.name);
-
-        // // Check if the image URL exists
-        // var imageUrl = character.image;
-        // var image = new Image();
-        // image.src = imageUrl;
-        // image.onload = function() {
-        //     characterImage.src = imageUrl;
-        // };
-        // image.onerror = function() {
-        //     // If the image URL doesn't exist, add '../' before it
-        //     characterImage.src = '../' + imageUrl;
-        // };
 
         characterImage.src = character.image;
         characterImage.alt = character.name;
