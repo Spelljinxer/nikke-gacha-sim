@@ -9,7 +9,7 @@
 
 // --------------------------------------------------
 
-var SSR_RATE = 0.9;
+var SSR_RATE = 0.04;
 var SR_RATE = 0.43;
 var R_RATE = 0.53;
 var PILGRIM_RATE = 0.0006;
