@@ -27,6 +27,11 @@ body{
     overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
+html{
+  visibility: visible;
+  opacity: 1;
+}
+
 li, a{
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
