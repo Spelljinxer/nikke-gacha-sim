@@ -91,12 +91,7 @@
   ],
 
   "Limited": [
-    {"name": "Modernia", "image": "./characters/SR/Anis.webp", "currentBanner": false},
-    {"name": "Anis", "image": "./characters/SR/Anis.webp", "currentBanner": false},
-    {"name": "Anis", "image": "./characters/SR/Anis.webp", "currentBanner": false},
-    {"name": "Anis", "image": "./characters/SR/Anis.webp", "currentBanner": false},
-    {"name": "Anis", "image": "./characters/SR/Anis.webp", "currentBanner": false},
-    {"name": "Anis", "image": "./characters/SR/Anis.webp", "currentBanner": false},
-    {"name": "Anis", "image": "./characters/SR/Anis.webp", "currentBanner": false}
+    {"name": "Modernia", "image": "./characters/Pilgrim/Modernia.webp", "currentBanner": false},
+    {"name": "AnisSS", "image": "./characters/Limited/Anis_Summer.webp", "currentBanner": false}
   ]
 }

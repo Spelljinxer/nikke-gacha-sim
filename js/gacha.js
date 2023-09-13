@@ -9,6 +9,13 @@
 
 // --------------------------------------------------
 
+var SSR_RATE = 0.04;
+var SR_RATE = 0.43;
+var R_RATE = 0.53;
+var PILGRIM_RATE = 0.0006;
+
+var LIMITED_RATE = 0.02;
+
 function init(data) {
   var charactersData = data;
   
@@ -27,21 +34,42 @@ function init(data) {
   }
   var activeBanner = getQueryParameter("activeBanner") || "default";
 
-  //sets flag to true for the limitecharacter
+  //sets flag to true for the limitedCharacter
   console.log("activeBanner: " + activeBanner);
   if (activeBanner != "default") {
     var limitedCharacters = charactersData.Limited;
+    var pilgrimCharacters = charactersData.Pilgrim;
+
     for (var i = 0; i < limitedCharacters.length; i++) {
-      var character = limitedCharacters[i];
-      if (character.name != activeBanner) {
-        character.currentBanner = false;
-      } else {
-        character.currentBanner = true;
+        // console.log("Comparing:", limitedCharacters[i].name, activeBanner); <-- debug
+        
+        if (limitedCharacters[i].name !== activeBanner) {
+          limitedCharacters[i].currentBanner = false;
+        }
+        else{
+          limitedCharacters[i].currentBanner = true;
+          console.log("Updated currentBanner for " + activeBanner + ":", limitedCharacters[i].currentBanner);
+          break;
+        }
+    }
+
+    for (var i = 0; i < pilgrimCharacters.length; i++) {
+      if(pilgrimCharacters[i].name !== activeBanner){
+        LIMITED_RATE = 0.02;
+      }
+      else{
+        LIMITED_RATE = 0.01;
+        console.log("activeBanner is a Pilgrim...")
         break;
-      } 
+      }
     }
   }
-  console.log("character.currentBanner is " + character.currentBanner);
+  
+  for (var i = 0; i < charactersData.Limited.length; i++) {
+    console.log("currentBanner flag for " + charactersData.Limited[i].name + ": " + charactersData.Limited[i].currentBanner); 
+  }
+  
+  console.log("LIMITED_RATE: " + LIMITED_RATE)
 
   //picks a random character from the rarity pile (fix later??)
   function getRandomCharacter(rarity) {
@@ -59,17 +87,17 @@ function init(data) {
       var rarity;
       var randomSSR = Math.random();
       console.log("randomSSR: " + randomSSR)
-      if (randomSSR <= 0.04) {
+      if (randomSSR <= SSR_RATE) {
         rarity = 'SSR';
         var randomPilgrim = Math.random();
         console.log("randomPilgrim: " + randomPilgrim);
         //tested this, its actually possible - averaging around 2000-3000 pulls
-        if (randomPilgrim <= 0.0006) {
+        if (randomPilgrim <= PILGRIM_RATE) {
           // You got a Pilgrim SSR!
           rarity = 'Pilgrim';
           console.log("You pulled a Pilgrim SSR!");
         }
-      } else if (randomSSR <= 0.47) {
+      } else if (randomSSR <= SR_RATE) {
         rarity = 'SR';
       } else {
         rarity = 'R';
