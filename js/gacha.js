@@ -9,7 +9,7 @@
 
 // --------------------------------------------------
 
-var SSR_RATE = 0.04;
+var SSR_RATE = 0.9;
 var SR_RATE = 0.43;
 var R_RATE = 0.53;
 var PILGRIM_RATE = 0.0006;
@@ -183,19 +183,25 @@ function init(data) {
       var category = Object.keys(charactersData).find(key => charactersData[key].includes(character));
       switch(category) {
         case 'SSR':
-          characterImage.classList.add('gold-border');
-          break;
+            characterImage.classList.add('gold-border');
+            break;
+        case 'Limited':
+            characterImage.classList.add('gold-border');
+            break;
         case 'Pilgrim':
-          characterImage.classList.add('orange-border');
-          break;
+            if (limited_flag && character.name === activeBanner) {
+                characterImage.classList.add('orange-border');
+            } else {
+                characterImage.classList.add('gold-border');
+            }
+            break;
         case 'SR':
-          characterImage.classList.add('purple-border');
-          break;
+            characterImage.classList.add('purple-border');
+            break;
         case 'R':
-          characterImage.classList.add('blue-border');
-          break;
-      }
-        gachaWindow.appendChild(characterImage);
+            characterImage.classList.add('blue-border');
+            break;
+      } gachaWindow.appendChild(characterImage);
       } catch (error) {
           console.error('Error displaying character:', error);
     }
