@@ -339,10 +339,10 @@ button.pull:hover {
   width: 120px;
   height: 280px;
   object-fit: cover;
-  border: 2px solid transparent; 
-  border-radius: 10px; 
+  border: 2px solid transparent;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  opacity: 0; /* Start with zero opacity */
+  opacity: 0;
 }
 
 /*
@@ -367,20 +367,21 @@ button.pull:hover {
 }
 
 @media screen and (max-width: 768px) {
-
   .gacha-window{
     max-height: 300px;
     height: 300px;
-    grid-gap: 5px;
+    grid-gap: 1px;
+    margin: 0 auto;
     margin-left: 3px;
   }
   .gacha-card {
-    width: 60px; 
-    height: 140px;
+    width: 4.5rem;
+    height: 160px;
   }
 
   .pull-container{
-    margin-top: 40px;
+    margin-top: 40px auto;
+    text-align: center;
   }
 }
 
@@ -403,4 +404,3 @@ button.pull:hover {
   border-color: rgb(63, 124, 255);
   box-shadow: 0 0 20px rgba(63, 124, 255, 0.5);
 }
-
