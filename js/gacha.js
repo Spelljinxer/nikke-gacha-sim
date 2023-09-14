@@ -95,33 +95,30 @@ function init(data) {
     var gachaWindow = document.querySelector(".gacha-window");
 
     
-    function limitedPull(){
+    function limitedPull() {
       var rarity;
       var randomSSR = Math.random();
-      if(randomSSR <= SSR_RATE){
-        rarity =  'SSR';
-        var randomLimited = Math.random();
-
-        if(randomLimited <= LIMITED_RATE){
-          rarity = 'Limited';
-          console.log("You pulled the Limited SSR!");
-        }
-        if(randomLimited <= PILGRIM_RATE){
-          rarity = 'Pilgrim';
-          console.log("You pulled a Pilgrim SSR!");
-        }
-      }
-      else if(randomSSR <= SR_RATE){
-        rarity = 'SR';
-      }
-      else{
-        rarity = 'R';
+  
+      if (randomSSR <= SSR_RATE) {
+          if (randomSSR <= LIMITED_RATE) {
+              rarity = 'Limited';
+              console.log("You pulled the Limited SSR!");
+          } else if (randomSSR <= PILGRIM_RATE + LIMITED_RATE) {
+              rarity = 'Pilgrim';
+              console.log("You pulled a Pilgrim SSR!");
+          } else {
+              rarity = 'SSR';
+          }
+      } else if (randomSSR <= SR_RATE) {
+          rarity = 'SR';
+      } else {
+          rarity = 'R';
       }
       var character = getRandomCharacter(rarity, limited_flag);
       displayCharacter(character, gachaWindow);
     }
-    
-    
+  
+  
     //the main body of the gacha
     function doPull() {
       var rarity;
