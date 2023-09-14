@@ -98,12 +98,12 @@ function init(data) {
     function limitedPull() {
       var rarity;
       var randomSSR = Math.random();
-  
+      console.log("randomSSR: " + randomSSR);
       if (randomSSR <= SSR_RATE) {
           if (randomSSR <= LIMITED_RATE) {
               rarity = 'Limited';
               console.log("You pulled the Limited SSR!");
-          } else if (randomSSR <= PILGRIM_RATE + LIMITED_RATE) {
+          } else if (randomSSR <= PILGRIM_RATE) {
               rarity = 'Pilgrim';
               console.log("You pulled a Pilgrim SSR!");
           } else {
@@ -182,13 +182,13 @@ function init(data) {
             break;
         case 'Limited':
             characterImage.classList.add('gold-border');
+            var isPilgrim = charactersData['Pilgrim'].some(pilgrimChar => pilgrimChar.name === character.name);
+            if (isPilgrim) {
+                characterImage.classList.add('orange-border');
+            }
             break;
         case 'Pilgrim':
-            if (limited_flag && character.name === activeBanner) {
-                characterImage.classList.add('orange-border');
-            } else {
-                characterImage.classList.add('gold-border');
-            }
+            characterImage.classList.add('orange-border');
             break;
         case 'SR':
             characterImage.classList.add('purple-border');
