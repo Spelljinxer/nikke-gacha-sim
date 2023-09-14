@@ -17,7 +17,11 @@ var PILGRIM_RATE = 0.0006;
 var LIMITED_RATE = 0.02;
 var limited_flag = false;
 
+
+
+
 function init(data) {
+  
   var charactersData = data;
   
   document.querySelector('.pull-single').addEventListener('click', function() {
