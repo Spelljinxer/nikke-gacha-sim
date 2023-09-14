@@ -104,6 +104,8 @@ function init(data) {
       var randomSSR = Math.random();
       console.log("randomSSR: " + randomSSR);
       if (randomSSR <= SSR_RATE) {
+
+          //if randomSSR <= LIMITED_RATE && randomSSR >= PILGRIM_RATE ???????????
           if (randomSSR <= LIMITED_RATE) {
               rarity = 'Limited';
               console.log("You pulled the Limited SSR!");
