@@ -85,6 +85,10 @@ body::-webkit-scrollbar-thumb {
 
 /* --------------------------------------- navbar -------------------------------------------------- */
 
+/**
+  * ty fireship
+  */
+
 .navbar {
   position: fixed;
   background-color: var(--bg-primary);
@@ -399,5 +403,4 @@ button.pull:hover {
   border-color: rgb(63, 124, 255);
   box-shadow: 0 0 20px rgba(63, 124, 255, 0.5);
 }
-
 

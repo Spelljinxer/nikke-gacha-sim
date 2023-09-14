@@ -92,6 +92,7 @@
 
   "Limited": [
     {"name": "Modernia", "image": "./characters/Pilgrim/Modernia.webp", "currentBanner": false},
-    {"name": "AnisSS", "image": "./characters/Limited/Anis_Summer.webp", "currentBanner": false}
+    {"name": "AnisSS", "image": "./characters/Limited/Anis_Summer.webp", "currentBanner": false},
+    {"name": "HelmAquaMarine", "image": "./characters/Limited/Helm_Aquarmine.webp", "currentBanner": false}
   ]
 }
