@@ -1,7 +1,7 @@
 /**
  * @author Reiden Rufin (Spelljinxer)
  * @version 0.7
- * @date 13/09/2023
+ * @date 14/09/2023
  * @credit I do not own the characterrs or images used in this project. All rights belong to SHIFTUP and the Level Infinite.
  * 
  */
@@ -104,14 +104,15 @@ function init(data) {
       var randomSSR = Math.random();
       console.log("randomSSR: " + randomSSR);
       if (randomSSR <= SSR_RATE) {
-          if (randomSSR <= LIMITED_RATE) {
+          rarity = 'SSR';
+          console.log("You pulled an SSR!");
+          if (randomSSR <= LIMITED_RATE && randomSSR >= PILGRIM_RATE) {
               rarity = 'Limited';
               console.log("You pulled the Limited SSR!");
-          } else if (randomSSR <= PILGRIM_RATE) {
+          }
+          if (randomSSR <= PILGRIM_RATE) {
               rarity = 'Pilgrim';
               console.log("You pulled a Pilgrim SSR!");
-          } else {
-              rarity = 'SSR';
           }
       } else if (randomSSR <= SR_RATE) {
           rarity = 'SR';
