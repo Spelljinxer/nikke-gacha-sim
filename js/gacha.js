@@ -1,7 +1,7 @@
 /**
  * @author Reiden Rufin (Spelljinxer)
  * @version 0.7
- * @date 14/09/2023
+ * @date 15/09/2023
  * @credit I do not own the characterrs or images used in this project. All rights belong to SHIFTUP and the Level Infinite.
  * 
  */
@@ -16,8 +16,6 @@ var PILGRIM_RATE = 0.0006;
 
 var LIMITED_RATE = 0.02;
 var limited_flag = false;
-
-
 
 
 function init(data) {
@@ -98,7 +96,7 @@ function init(data) {
   function pullCharacter(pullType, limited) {
     var gachaWindow = document.querySelector(".gacha-window");
 
-    
+    //limited pull
     function limitedPull() {
       var rarity;
       var randomSSR = Math.random();
@@ -217,4 +215,6 @@ fetch('./data/characters.json')
   .catch(error => {
     console.error('Error loading characters data:', error);
 });
+
+
 
