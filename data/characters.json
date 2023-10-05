@@ -94,6 +94,7 @@
     {"name": "Modernia", "image": "./characters/Pilgrim/Modernia.webp", "currentBanner": false},
     {"name": "AnisSS", "image": "./characters/Limited/Anis_Summer.webp", "currentBanner": false},
     {"name": "HelmAquamarine", "image": "./characters/Limited/Helm_Aquamarine.webp", "currentBanner": false},
-    {"name": "NeonBO", "image": "./characters/Limited/NeonBO.webp", "currentBanner": false}
+    {"name": "NeonBO", "image": "./characters/Limited/NeonBO.webp", "currentBanner": false},
+    {"name": "MaryBG", "image": "./characters/Limited/MaryBay.webp", "currentBanner": false}
   ]
 }
