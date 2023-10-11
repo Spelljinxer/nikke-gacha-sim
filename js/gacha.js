@@ -100,7 +100,7 @@ function init(data) {
     function limitedPull() {
       var rarity;
       var randomSSR = Math.random();
-      console.log("randomSSR: " + randomSSR);
+      // console.log("randomSSR: " + randomSSR);
       if (randomSSR <= SSR_RATE) {
           rarity = 'SSR';
           console.log("You pulled an SSR!");
@@ -129,7 +129,7 @@ function init(data) {
       if (randomSSR <= SSR_RATE) {
         rarity = 'SSR';
         var randomPilgrim = Math.random();
-        console.log("randomPilgrim: " + randomPilgrim);
+        // console.log("randomPilgrim: " + randomPilgrim);
         if (randomPilgrim <= PILGRIM_RATE) {
           rarity = 'Pilgrim';
           console.log("You pulled a Pilgrim SSR!");
