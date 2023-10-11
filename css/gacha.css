@@ -349,9 +349,9 @@ button.pull:hover {
  * @keyframes fadeIn these needs modifying for the future... 
  */
 
-.gacha-card:nth-child(1) { animation: fadeIn 0.3s 0.03s forwards; -webkit-animation: fadeIn 0.3s 0.03s forwards; }
-.gacha-card:nth-child(2) { animation: fadeIn 0.3s 0.05s forwards; -webkit-animation: fadeIn 0.3s 0.05s forwards; }
-.gacha-card:nth-child(3) { animation: fadeIn 0.3s 0.08s forwards; -webkit-animation: fadeIn 0.3s 0.08s forwards; }
+.gacha-card:nth-child(1) { animation: fadeIn 0.4s 0.08s forwards; -webkit-animation: fadeIn 0.4s 0.08s forwards; }
+.gacha-card:nth-child(2) { animation: fadeIn 0.3s 0.09s forwards; -webkit-animation: fadeIn 0.3s 0.09s forwards; }
+.gacha-card:nth-child(3) { animation: fadeIn 0.3s 0.1s forwards; -webkit-animation: fadeIn 0.3s 0.1s forwards; }
 .gacha-card:nth-child(4) { animation: fadeIn 0.3s 0.1s forwards; -webkit-animation: fadeIn 0.3s 0.1s forwards; }
 .gacha-card:nth-child(5) { animation: fadeIn 0.3s 0.13s forwards; -webkit-animation: fadeIn 0.3s 0.13s forwards; }
 .gacha-card:nth-child(6) { animation: fadeIn 0.3s 0.15s forwards; -webkit-animation: fadeIn 0.3s 0.15s forwards; }
