@@ -95,6 +95,8 @@
     {"name": "AnisSS", "image": "./characters/Limited/Anis_Summer.webp", "currentBanner": false},
     {"name": "HelmAquamarine", "image": "./characters/Limited/Helm_Aquamarine.webp", "currentBanner": false},
     {"name": "NeonBO", "image": "./characters/Limited/NeonBO.webp", "currentBanner": false},
-    {"name": "MaryBG", "image": "./characters/Limited/MaryBay.webp", "currentBanner": false}
+    {"name": "MaryBG", "image": "./characters/Limited/MaryBay.webp", "currentBanner": false},
+    {"name": "2B", "image": "./characters/Limited/2B.webp", "currentBanner": false},
+    {"name": "A2", "image": "./characters/Limited/A2.webp", "currentBanner": false}
   ]
 }

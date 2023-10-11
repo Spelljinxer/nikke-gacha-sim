@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikke Gacha Simulator</title>
+    <link rel = "icon" href = "./img/icon.webp" type = "image/x-icon">
+    <link rel="stylesheet" href="./css/gacha.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <script src="https://kit.fontawesome.com/f4e6cce133.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="title">
+    <ul class="nav__title">
+        <img src="./img/logo.png" alt="" width="350px">
+        <h1> made by Spelljinxer </h1>
+    </ul>
+  </header>
+  <nav class="navbar">
+    <ul class="navbar-nav">
+      <li class="logo">
+        <a href="#" class="nav-link">
+          <span class="link-text logo-text">Banners</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fad"
+            data-icon="angle-double-right"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"
+          >
+            <g class="fa-group">
+              <path
+                fill="currentColor"
+                d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
+                class="fa-secondary"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
+                class="fa-primary"
+              ></path>
+            </g>
+          </svg>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <img class="nav-img" src="./img/banners/ordinaryBanner.png"></img>
+          <span class="link-text">Ordinary</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="./moderniaBanner.html?activeBanner=Modernia" class="nav-link">
+          <img class="nav-img" src="./img/banners/moderniaBanner.png"></img>
+          <span class="link-text">Modernia</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="./neonBanner.html?activeBanner=NeonBO" class="nav-link">
+          <img class="nav-img" src="./img/banners/neonBanner.png"></img>
+          <span class="link-text">Neon</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="./maryBanner.html?activeBanner=MaryBG" class="nav-link">
+          <img class="nav-img" src="./img/banners/maryBanner.png"></img>
+          <span class="link-text">Mary</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="./anisBanner.html?activeBanner=AnisSS" class="nav-link">
+          <img class="nav-img" src="./img/banners/anisBanner.png"></img>
+          <span class="link-text">Anis</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="./helmBanner.html?activeBanner=HelmAquamarine" class="nav-link">
+          <img class="nav-img" src="./img/banners/helmBanner.png"></img>
+          <span class="link-text">Helm</span>
+        </a>
+      </li>
+
+      <li class="nav-item active">
+        <a href="" class="nav-link">
+          <img class="nav-img" src="./img/banners/2BBanner.png">
+          <span class="link-text">2B</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="./nier2B.html?activeBanner=A2" class="nav-link">
+          <img class="nav-img" src="./img/banners/A2Banner.png"></img>
+          <span class="link-text">A2</span>
+        </a>
+      </li>
+
+
+      <!-- <li class="nav-item" id="github">
+        <a href="https://github.com/spelljinxer/nikke-gacha-sim" target ="_blank" class="nav-link">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fad"
+            data-icon="space-shuttle"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 512"
+            class="svg-inline--fa fa-brands fa-github fa-w-20 fa-5x"
+          >
+            <g class="fa-group">
+              <path
+                fill="currentColor"
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                class="fa-secondary"
+              ></path>
+              
+            </g>
+          </svg>
+          <span class="link-text">Repo</span>
+        </a>
+      </li> -->
+    </ul>
+  </nav>
+  <div class="gacha-container">
+    <div class="gacha-window"></div>
+    <div class="pull-container">
+      <button class="pull pull-single">1x <img src="./img/specialTicket.webp" alt="Single Pull" id="ordinaryTicket"></button>
+      <button class="pull pull-multi">10x <img src="./img/specialTicket.webp" alt="Multi Pull" id="ordinaryTicket"></button>
+    </div> 
+  </div>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script><script  src="./script.js"></script>
+  <script src="./js/gacha.js"></script>
+</body>
+</html>
