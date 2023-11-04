@@ -279,13 +279,25 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   padding: 10px 0;
   font-family: 'Montserrat', sans-serif;
   /* background-color: red; */
 }
 .pull-container {
   text-align: center; 
+}
+
+button.probInfo{
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-left: auto;
+}
+
+.button-container{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 button.pull{
