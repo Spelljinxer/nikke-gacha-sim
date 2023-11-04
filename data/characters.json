@@ -9,6 +9,7 @@
     { "name": "Nihilister", "image": "./characters/Pilgrim/Nihilister.webp" },
     { "name": "Noah", "image": "./characters/Pilgrim/Noah.webp" },
     { "name": "Rapunzel", "image": "./characters/Pilgrim/Rapunzel.webp"},
+    { "name": "RedHood", "image": "./characters/Pilgrim/RedHood.webp"},
     { "name": "Scarlet", "image": "./characters/Pilgrim/Scarlet.webp" },
     { "name": "Snow White", "image": "./characters/Pilgrim/SnowWhite.webp"}
   ],
@@ -100,6 +101,7 @@
     {"name": "NeonBO", "image": "./characters/Limited/NeonBO.webp", "currentBanner": false},
     {"name": "MaryBG", "image": "./characters/Limited/MaryBay.webp", "currentBanner": false},
     {"name": "2B", "image": "./characters/Limited/2B.webp", "currentBanner": false},
-    {"name": "A2", "image": "./characters/Limited/A2.webp", "currentBanner": false}
+    {"name": "A2", "image": "./characters/Limited/A2.webp", "currentBanner": false},
+    {"name": "RedHood", "image": "./characters/Pilgrim/RedHood.webp", "currentBanner": false}
   ]
 }
